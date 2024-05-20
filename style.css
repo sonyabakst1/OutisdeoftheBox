@@ -160,6 +160,19 @@ html {
   width: 46%;
 }
 
+.archive-button {
+  color: red; /* Eye-catching button color */
+  background-color: white;
+  border: solid black 3px;
+  padding: 12px 20px;
+  font-size: 30px;
+  cursor: pointer;
+  margin-top: 20px; /* Spacing above the button */
+	font-family: "Redaction 35 Italic";
+  position: absolute;
+  margin: 10%;
+  width: 46%;
+}
 
 
 #rolling{text-align: center; font-size: 40px; color: rgba(44,172,10,1.00);}
