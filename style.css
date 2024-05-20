@@ -1,0 +1,487 @@
+@font-face {
+  font-family: 'Helvetica Heue';
+  src: url("HelveticaNeue.ttc")
+}
+
+@font-face{
+	font-family:'Tex Gyre';
+		src: url("texgyreheroscn-regular.otf")
+}
+
+@font-face{
+	font-family: "Redaction 35 Italic";
+		src: url("Redaction35-Italic.otf")
+}
+
+@font-face{
+	font-family: "Redaction 35 Regular";
+		src: url("Redaction35-Regular.otf")
+}
+
+
+
+.viewport {
+      overflow-x: hidden; /* Hide horizontal overflow */
+      width: 400%; /* Adjust width as needed */
+      height: 100vh; /* Full viewport height */
+      position: relative;
+    }
+
+    .scroll-container {
+      white-space: nowrap; /* Prevent line breaks */
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: scrollAnimation 20s linear infinite; /* Adjust duration and timing function */
+    }
+
+    @keyframes scrollAnimation {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%); /* Adjust the distance to move */
+      }
+    }
+
+
+
+html {
+  font-size: calc(24px + 0.5vmax);
+   font-family: "Helvetica Neue";
+  letter-spacing: 0.02em;
+  line-height: .9;
+	background-color: rgba(248, 245, 241)
+}
+
+#body {
+  height: 100%;
+  width: 100%;
+}
+.section {
+  width: 500%; /* Adjust this value as needed to make the container wider */
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+	display: inline-block;
+	cursor:all-scroll;
+	caret-color: red;
+}
+
+
+
+.border{
+	height: 1080px;
+  width: 1920px;
+	border: 1px red; 
+}
+
+.k{
+	height: 20%; width: auto; position:absolute;
+}
+
+.pictures {
+  width: 220px;
+  height: auto;
+	
+}
+
+.bookend {
+  height: 5%;
+  width: auto;
+  opacity: 0;
+}
+
+.side {
+  height: 50%;
+  width: auto;
+  position: absolute;
+	opacity:0;
+}
+
+/* Existing styles... */
+
+/* Popup Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0,0,0,0.75); /* Dim the background more */
+  transition: all 0.5s ease; /* Smooth transition for better UX */
+	letter-spacing: -0.01rem;
+}
+
+.modal-content {
+  position: relative;
+  background-color: white; /* Darker background */
+  margin: 20% 30% 40% 10% ; /* Centering the modal on page */
+  padding: 30px;
+  border: solid black 3px;/* Remove if not needed */
+ 
+  width: 40%; /* Adjust width as necessary */
+
+  text-align: center; /* Center align the text */
+  color: black;
+  
+}
+
+.popuphead {
+  font-size: 68px; /* Larger font size */
+  color: #ffffff;
+  margin-bottom: 20px;
+	font-family: "Redaction 35 Italic";
+		position: absolute;
+	top: 10%;
+	left: 50%;
+}
+
+.popupbody {
+  font-size: 20px; /* Comfortable reading size */
+  line-height: 1; /* Improved line spacing */
+  margin-bottom: 5px;
+	text-align: left;
+}
+
+.explore-button {
+  color: #000fff; /* Eye-catching button color */
+  background-color: white;
+  border: solid black 3px;
+  padding: 12px 20px;
+  font-size: 30px;
+  cursor: pointer;
+  margin-top: 20px; /* Spacing above the button */
+	font-family: "Redaction 35 Italic";
+  position: absolute;
+  margin: 0% 30%;
+  width: 46%;
+}
+
+
+
+#rolling{text-align: center; font-size: 40px; color: rgba(44,172,10,1.00);}
+
+.image-modal-content {
+  width: 40%;
+  height: 65%;
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10% 30% 40% 10% ; /* Centering the modal on page */
+ 
+  color: white;
+}
+
+.image-modal-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.image-container {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 2;  /* Ensure the image is above the scrolling text */
+}
+
+.image-container img {
+  width: 60%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+}
+
+.text-scrolling-container {
+  position: absolute;
+  width: 100%; /* Adjust based on your layout */
+  height: 100%; /* Adjust based on your layout */
+  top: -90px; /* Positioning adjustment if needed */
+}
+
+.scrolling-text p {
+  position: relative;
+  white-space: nowrap;
+  display: block;
+  margin: 10px 0; /* Space between lines */
+}
+
+/* Define different animations for different speeds */
+@keyframes scroll-right-slow {
+  0% { transform: translateX(300%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes scroll-right-medium {
+  0% { transform: translateX(300%); }
+  100% { transform: translateX(-150%); }
+}
+
+@keyframes scroll-right-fast {
+  0% { transform: translateX(300%); }
+  100% { transform: translateX(-150%); }
+}
+
+@keyframes scroll-right-fastest {
+  0% { transform: translateX(300%); }
+  100% { transform: translateX(-250%); }
+}
+
+/* Apply different animations to each line */
+#itemName {
+  animation: scroll-right-slow 7s linear infinite;
+  color: red;
+  font-weight: bold;
+  font-size: 1.8em;
+  font-family: "Redaction 35 Italic";
+}
+
+#descriptionLine1 {
+  animation: scroll-right-medium 8.7s linear infinite;
+  font-size: 1em;
+}
+
+#descriptionLine2 {
+  animation: scroll-right-fast 7.3s linear infinite;
+  font-size: 1em;
+}
+
+#descriptionLine3 {
+  animation: scroll-right-fastest 5s linear infinite;
+  font-size: 1em;
+}
+#descriptionLine4 {
+  animation: scroll-right-medium 6.5s linear infinite;
+  font-size: 1em;
+}
+
+#descriptionLine5 {
+  animation: scroll-right-fast 5.5s linear infinite;
+  font-size: 1em;
+}
+
+#descriptionLine6 {
+  animation: scroll-right-fastest 4s linear infinite;
+  font-size: 1em;
+}
+
+.highlighted-text.blue {
+  color: blue;
+  font-weight: bold;
+  font-size: 1.3em;
+  font-family: "Redaction 35 Italic";
+  animation: scroll-right-slow 12s linear infinite;
+}
+
+/* Ensure your container and overall modal are well styled */
+.user-interaction {
+  margin-top: 15px; /* Adjust spacing */
+}
+.comments-display-container {
+  width: 20%;
+  margin-left: 10px;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.comments-display {
+ 
+  color: red;
+  font-size: 30px;
+  font-family: "Helvetica Neue";
+  font-weight: bolder;
+  transform: rotate(90deg);
+  line-height: .1;
+  position: absolute;
+ bottom: 5px;
+}
+
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment-input, .submit-button {
+  width: 90%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+
+.user-interaction {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.comments{
+  width: 30%;
+  height:30%;
+  background-color: #fff;
+  
+}
+.comment-section {
+  transform: rotate(-90deg);
+  transform-origin: top right;
+}
+
+.comment-input, .submit-button {
+  width: 400px;
+  padding: 10px;
+  border: 2px solid #333;
+  background: #fff;
+  font-size: 16px;
+  position: relative;
+  bottom: -50px;
+  right: -250px;
+}
+
+.submit-button {
+  background-color: #000fff;
+  color: white;
+  cursor: pointer;
+}
+
+.vertical-text {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+#background {
+	letter-spacing: 3em;
+  line-height: 10;
+
+}
+
+
+*,
+:before,
+:after {
+    box-sizing: border-box;
+}
+
+
+#wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80em;
+}
+
+
+
+h1 {
+    animation: text-shadow 6.4s ease-in-out infinite;
+    font-size: 5em;
+    font-weight: 900;
+    line-height: 1;
+}
+
+h1:hover {
+    animation-play-state: paused;
+}
+
+a {
+    color: #024794;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+@keyframes text-shadow {
+  0% {  
+      transform: translateY(0);
+      text-shadow: 
+          0.03em 0 0 #0c2ffb,   /* Blue */
+          0 0 0 #27a800,         /* Green */
+          0 0 0 #fb203b,         /* Red */
+          -0.05em -0.02em 0 #fefc4b, /* Yellow */
+          0.04em 0.04em 0 #000000, 
+          0.08em 0.08em 0 #000fff,   /* Added Blue */
+          -0.04em -0.04em 0 #ff4500; /* Added Orange */
+  }
+  20% {
+    transform: translateY(-0.15em);
+    text-shadow: 
+    0 0.125em 0 #0c2ffb, 
+    0.1em 0.05em 0 #27a800,
+     0 -0.125em 0 #fb203b,
+     0 -0.05em 0 #fefc4b,
+     -3em 5em 0 #000000,
+     -3.08em 12.08em 0 #000fff,
+     -0.05em -0.05em 0 #ff4500;
+}
+40% {
+    transform: translateY(0.3em);
+    text-shadow: 
+    0 -0.0525em 0 #0c2ffb,
+     0 -0.025em 0 #27a800, 
+     0.1em 0.0525em 0 #fb203b, 
+     -13em 2.025em 0 #fefc4b, 
+     -3.06em 12em 0 #000000, 
+     -3.08em 12.08em 0 #000fff, 
+     -2.66em 12.06em 0 #ff4500;
+}
+60% {
+    transform: translateY(-0.2em);
+    text-shadow:
+     0 0.002125em 0 #0c2ffb, 
+     6.1em 10.00525em 0 #27a800,
+      0 -10.002125em 0 #fb203b, 
+      -2em -10.00525em 0 #fefc4b, 
+      -10.07em 12.07em 0 #000000, 
+      -10.08em 12.08em 0 #000fff, 
+      -10.07em 9.07em 0 #ff4500;
+}
+80% {
+    transform: translateY(0);
+    text-shadow:
+     0 0.002125em 0 #0c2ffb,
+      0.1em 0.00525em 0 #27a800, 
+      0 -0.002125em 0 #fb203b, 
+      0 -0.00525em 0 #fefc4b,
+       -0.08em 0.08em 0 #000000, 
+       -0.08em -0.08em 0 #000fff, 
+       -0.08em -0.08em 0 #ff4500;
+}
+
+
+
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+}
